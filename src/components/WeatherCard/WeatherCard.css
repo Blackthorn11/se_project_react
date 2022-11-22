@@ -1,0 +1,43 @@
+.weathercard {
+  width: 100%;
+  height: 80px;
+  margin-top: 28px;
+  border-radius: 12px;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.weathercard__temp {
+  padding: 0;
+  margin: 0;
+  margin-left: 16px;
+  align-self: center;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 1.11;
+}
+
+.weathercard__image-wrapper {
+  position: relative;
+}
+
+.weathercard__image {
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  right: 0;
+}
+
+.weathercard__background-day {
+  background: #00a3ff;
+}
+
+.weathercard__background-day-precipitation {
+  background: #6ca6c7;
+}
+
+.weathercard__background-night {
+  background: #286897;
+}

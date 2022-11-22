@@ -1,0 +1,223 @@
+.modal {
+  background-color: rgba(0, 0, 0, 0.3);
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+.modal_hidden {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  display: none;
+}
+
+.modal__container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  max-width: 498px;
+  border-radius: 16px;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.modal__image {
+  width: 498px;
+  height: 498px;
+  margin-bottom: 20px;
+}
+
+.modal__exit {
+  background-image: url("../../images/formCloseButton.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  top: 27px;
+  right: 27px;
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+  padding: 0;
+}
+
+.modal__exit:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.modal__name {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  margin-bottom: 12px;
+  margin-left: 32px;
+  margin-top: 0;
+}
+
+.modal__weather {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  margin-bottom: 32px;
+  margin-left: 32px;
+  margin-top: 0;
+}
+
+.modal__form-container {
+  width: 498px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: #fff;
+  border-radius: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  padding: 28px 28px 36px;
+  box-sizing: border-box;
+}
+
+.modal__form-exit {
+  background-image: url("../../images/closeButtonImage.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: rgba(0, 0, 0, 0);
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  top: 22px;
+  right: 30px;
+  border: none;
+}
+
+.modal__form-title {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  margin-bottom: 24px;
+}
+
+.form {
+  width: 440px;
+  margin: auto;
+}
+
+.form__label {
+  margin-bottom: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  margin-top: 0;
+}
+
+.form__input {
+  margin-bottom: 24px;
+  height: 32px;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #000;
+  padding: 0;
+}
+
+.form__radio-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 4px;
+  row-gap: 8px;
+  margin-bottom: 32px;
+}
+
+.form__label-radio {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  color: rgba(0, 0, 0, 0.5);
+  display: inline-block;
+}
+
+.form__label-radio:hover {
+  cursor: pointer;
+}
+
+.form__input-radio {
+  cursor: pointer;
+  margin-right: 8px;
+  display: inline-block;
+}
+
+.form__input-radio:checked + label {
+  color: rgba(0, 0, 0, 1);
+}
+
+.form__radio {
+  display: inline-block;
+  position: relative;
+}
+
+.form__radio input[type="radio"] {
+  display: none;
+}
+
+.form__radio label {
+  color: rgba(0, 0, 0, 0.5);
+  font-weight: 700;
+}
+
+.form__radio label:before {
+  content: " ";
+  display: inline-block;
+  position: relative;
+  width: 16px;
+  height: 16px;
+  top: 3px;
+  left: -8px;
+  border-radius: 8px;
+  margin: 0 8px 0;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  background-color: transparent;
+}
+
+.form__radio input[type="radio"]:checked + label:after {
+  border-radius: 8px;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  top: 7px;
+  left: 4px;
+  content: " ";
+  display: block;
+  background-color: #000;
+  color: #000;
+  border-color: #000;
+  opacity: 1;
+}
+
+.form__submit {
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 1);
+  width: 124px;
+  height: 36px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  cursor: pointer;
+  padding: 0;
+}
+
+.form__submit:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.form__submit:disabled {
+  background-color: rgba(0, 0, 0, 0.3);
+}
