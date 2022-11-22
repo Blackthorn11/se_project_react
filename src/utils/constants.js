@@ -9,18 +9,18 @@ const longitude = "35.3685";
 // Weather conditions for the WeatherCard
 
 const weatherConditions = {
-  sunday: "./images/sunday.svg",
-  cloudday: "./images/cloudday.svg",
-  rainday: "./images/rainday.svg",
-  stormday: "./images/stormday.svg",
-  snowday: "./images/snowday.svg",
-  fogday: "./images/fogday.svg",
-  sunnight: "./images/sunnight.svg",
-  cloudnight: "./images/cloudnight.svg",
-  rainnight: "./images/rainnight.svg",
-  stormnight: "./images/stormnight.svg",
-  snownight: "./images/snownight.svg",
-  fognight: "./images/fognight.svg",
+  sunday: "/images/sunday.svg",
+  cloudday: "/images/cloudday.svg",
+  rainday: "/images/rainday.svg",
+  stormday: "/images/stormday.svg",
+  snowday: "/images/snowday.svg",
+  fogday: "/images/fogday.svg",
+  sunnight: "/images/sunnight.svg",
+  cloudnight: "/images/cloudnight.svg",
+  rainnight: "/images/rainnight.svg",
+  stormnight: "/images/stormnight.svg",
+  snownight: "/images/snownight.svg",
+  fognight: "/images/fognight.svg",
 };
 
 // Default clothing items array
