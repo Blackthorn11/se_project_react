@@ -3,8 +3,8 @@
 const APIkey = "9f8c2d48165812ad3855017695e94b3e";
 
 // My hometown coordinates
-const latitude = "32.6941";
-const longitude = "35.3685";
+const latitude = "32.69412";
+const longitude = "35.368513";
 
 // Weather conditions for the WeatherCard
 
