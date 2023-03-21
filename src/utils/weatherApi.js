@@ -20,6 +20,8 @@ function filterWeatherData(data) {
   weatherData.city = data.name;
   weatherData.temperature = data.main.temp;
   weatherData.condition = data.weather.main;
+  weatherData.temperatureF = `${Math.round(data.main.temp)}°F`;
+  weatherData.temperatureC = `${Math.round(((data.main.temp - 32) * 5) / 9)}°C`;
   return weatherData;
 }
 

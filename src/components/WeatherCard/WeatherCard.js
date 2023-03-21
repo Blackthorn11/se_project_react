@@ -1,7 +1,10 @@
 import "./WeatherCard.css";
 import { weatherConditions } from "../../utils/constants";
+import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
+import { useContext } from "react";
 
 function WeatherCard({ weatherData }) {
+  const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
   if (!weatherData) return null;
 
   function selectWeatherCondition(weatherData) {
@@ -29,7 +32,11 @@ function WeatherCard({ weatherData }) {
 
   return (
     <div className="weathercard weathercard__background-day">
-      <h2 className="weathercard__temp">{weatherData.temperature}&deg;F</h2>
+      <h2 className="weathercard__temp">
+        {currentTemperatureUnit === "F"
+          ? weatherData.temperatureF
+          : weatherData.temperatureC}
+      </h2>
       <div className="weathercard__image-wrapper">
         <img
           className="weathercard__image"

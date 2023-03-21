@@ -61,3 +61,15 @@
 .item-modal__desc {
   margin: 0 auto 32px 32px;
 }
+
+.item-modal__delete {
+  border-style: none;
+  background-color: rgba(0, 0, 0, 0);
+  color: #ff4d00;
+  position: absolute;
+  bottom: 68px;
+  right: 32px;
+  font-size: 20px;
+  line-height: 24px;
+  cursor: pointer;
+}

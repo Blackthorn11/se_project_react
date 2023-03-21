@@ -1,0 +1,69 @@
+.temperature-checkbox {
+  height: 0;
+  width: 0;
+  position: absolute;
+  visibility: hidden;
+}
+
+.temperature-switch {
+  margin-right: 20px;
+  cursor: pointer;
+  width: 56px;
+  height: 28px;
+  background: #fff;
+  position: relative;
+  transition: background-color 0.2s;
+  border-radius: 20px;
+  border: 2px solid #7e7e7e;
+}
+
+.temperature-switch:hover {
+  border: 2px solid #000000;
+}
+
+.temperature-slider {
+  top: 0.25px;
+  z-index: 0;
+}
+
+.temperature-switch .temperature-slider {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  transition: 0.2s;
+  background: #000000;
+  border-radius: 20px;
+}
+
+.temperature-checkbox:checked + .temperature-slider {
+  left: -1px;
+  transform: translateX(28px);
+}
+
+.temperature-labels {
+  display: relative;
+  z-index: 2;
+  height: 100%;
+  font-size: 14px;
+  color: #7e7e7e;
+}
+.temperature-labels span {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  height: 100%;
+}
+.temperature-labels span:first-child {
+  left: 0;
+}
+.temperature-labels span:last-child {
+  right: 0;
+}
+
+.temperature-slider .temperature-labels {
+  mix-blend-mode: difference;
+  transition: 0.4s;
+  color: rgba(255, 255, 255, 0.5);
+}
