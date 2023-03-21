@@ -1,21 +1,15 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
 export const AddItemModal = ({ isOpen, onClose, onAddItem }) => {
-  const [name, setName] = React.useState("");
-  const [imageUrl, setImageUrl] = React.useState("");
-  const [weatherType, setWeatherType] = React.useState("");
-  const [isHotChecked, setIsHotChecked] = React.useState(false);
-  const [isWarmChecked, setIsWarmChecked] = React.useState(false);
-  const [isColdChecked, setIsColdChecked] = React.useState(false);
+  const [name, setName] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
+  const [weatherType, setWeatherType] = useState("");
 
-  React.useEffect(() => {
+  useEffect(() => {
     setName("");
     setImageUrl("");
     setWeatherType("");
-    setIsHotChecked(false);
-    setIsWarmChecked(false);
-    setIsColdChecked(false);
   }, [isOpen]);
 
   const handleName = (e) => {
@@ -27,13 +21,11 @@ export const AddItemModal = ({ isOpen, onClose, onAddItem }) => {
   };
 
   const handleWeather = (e) => {
-    console.log(weatherType);
     setWeatherType(e.target.value);
-    console.log(weatherType);
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const handleSubmit = (e) => {
+    e.preventDefault();
     onAddItem(name, imageUrl, weatherType);
   };
 
@@ -75,7 +67,7 @@ export const AddItemModal = ({ isOpen, onClose, onAddItem }) => {
         <div className="form__radio">
           <input
             className="form__input-radio"
-            checked={isHotChecked}
+            checked={weatherType === "hot"}
             id="hot"
             name="weather"
             value="hot"
@@ -89,7 +81,7 @@ export const AddItemModal = ({ isOpen, onClose, onAddItem }) => {
         <div className="form__radio">
           <input
             className="form__input-radio"
-            checked={isWarmChecked}
+            checked={weatherType === "warm"}
             id="warm"
             name="weather"
             value="warm"
@@ -103,7 +95,7 @@ export const AddItemModal = ({ isOpen, onClose, onAddItem }) => {
         <div className="form__radio">
           <input
             className="form__input-radio"
-            checked={isColdChecked}
+            checked={weatherType === "cold"}
             id="cold"
             name="weather"
             value="cold"

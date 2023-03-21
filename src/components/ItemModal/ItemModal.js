@@ -17,7 +17,7 @@ function ItemModal({ isOpen, name, card, onClose, handleDeleteModal }) {
           alt="close button"
         ></button>
         <img
-          src={card.link}
+          src={card.imageUrl}
           alt={`${card.name}`}
           className="item-modal__image"
         />

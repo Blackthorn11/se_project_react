@@ -8,12 +8,7 @@ import Main from "../Main/Main";
 import { Profile } from "../Profile/Profile";
 import Footer from "../Footer/Footer";
 import ItemModal from "../ItemModal/ItemModal";
-import {
-  APIkey,
-  latitude,
-  longitude,
-  defaultClothingItems,
-} from "../../utils/constants";
+import { APIkey, latitude, longitude } from "../../utils/constants";
 import { getItems, addItem, removeItem } from "../../utils/api";
 import { fetchWeatherData, filterWeatherData } from "../../utils/weatherApi";
 import { AddItemModal } from "../AddItemModal/AddItemModal";
@@ -109,13 +104,13 @@ function App() {
               <Route exact path="/">
                 <Main
                   weatherData={weatherData}
-                  defaultClothing={defaultClothingItems}
+                  clothingItems={clothingItems}
                   handleCardClick={handleCardClick}
                 />
               </Route>
               <Route path="/profile">
                 <Profile
-                  clothingItems={defaultClothingItems}
+                  clothingItems={clothingItems}
                   handleCardClick={handleCardClick}
                   openModal={() => {
                     setActiveModal("add");
