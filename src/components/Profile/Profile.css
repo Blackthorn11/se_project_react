@@ -88,3 +88,28 @@
   cursor: pointer;
   box-sizing: border-box;
 }
+
+.profile__options {
+  font-family: "Cabinet Grotesk", "Arial", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 25px;
+  margin: 0;
+}
+
+.sidebar__profile-data {
+  margin: 0 0 8px 0;
+  width: 175px;
+  cursor: pointer;
+}
+
+.sidebar__profile-data:hover {
+  opacity: 0.5;
+}
+.sidebar__logout {
+  margin: 0;
+  cursor: pointer;
+}
+.sidebar__logout:hover {
+  opacity: 0.5;
+}

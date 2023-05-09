@@ -4,7 +4,14 @@ import WeatherCard from "../WeatherCard/WeatherCard";
 import { useContext } from "react";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 
-function Main({ weatherData, clothingItems, handleCardClick }) {
+function Main({
+  weatherData,
+  clothingItems,
+  handleCardClick,
+  handleLikeClick,
+  isLoggedIn,
+  currentUser,
+}) {
   const temperature = weatherData.temperature;
   const weatherType = () => {
     if (temperature >= 86) {
@@ -50,10 +57,13 @@ function Main({ weatherData, clothingItems, handleCardClick }) {
               <ItemCard
                 isOpen="false"
                 clothingOption={item}
-                key={item.id}
+                key={item._id}
                 name={item.name}
                 image={item.imageUrl}
                 weather={item.weather}
+                handleLikeClick={handleLikeClick}
+                isLoggedIn={isLoggedIn}
+                currentUser={currentUser}
                 onClick={() => {
                   handleCardClick(item);
                 }}

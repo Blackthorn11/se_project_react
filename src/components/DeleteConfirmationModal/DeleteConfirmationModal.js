@@ -7,12 +7,14 @@ export function DeleteConfirmationModal({
   onClose,
   handleConfirm,
   handleCancel,
+  onClick,
 }) {
   return (
     <div
       className={
         isOpen ? `modal modal_type_${name}` : `modal_type_${name} modal_hidden`
       }
+      onClick={onClick}
     >
       <div className="modal__container modal__container-delete">
         <button

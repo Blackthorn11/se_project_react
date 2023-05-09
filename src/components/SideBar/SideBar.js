@@ -1,12 +1,23 @@
 import "../Profile/Profile.css";
-import avatar from "../../images/avatar.png";
 
-export function SideBar() {
+export function SideBar({ currentUser, handleEditClick, handleLogout }) {
   return (
     <div className="profile__sidebar">
       <div className="profile__sidebar-header">
-        <img className="profile__avatar" src={avatar} alt="user avatar" />
-        <p className="profile__user-name">Terrence Tegegne</p>
+        <img
+          className="profile__avatar"
+          src={currentUser.avatar}
+          alt="user avatar"
+        />
+        <p className="profile__user-name">{currentUser.name}</p>
+      </div>
+      <div className="profile__options">
+        <p className="sidebar__profile-data" onClick={handleEditClick}>
+          Edit Profile
+        </p>
+        <p className="sidebar__logout" onClick={handleLogout}>
+          Log out
+        </p>
       </div>
     </div>
   );

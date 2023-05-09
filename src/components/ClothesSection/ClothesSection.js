@@ -2,7 +2,14 @@ import "../Profile/Profile.css";
 import "../ItemCard/ItemCard.css";
 import ItemCard from "../ItemCard/ItemCard";
 
-export function ClothesSection({ clothingItems, handleCardClick, openModal }) {
+export function ClothesSection({
+  clothingItems,
+  handleCardClick,
+  openModal,
+  currentUser,
+  isLoggedIn,
+  handleLikeClick,
+}) {
   return (
     <div className="profile__clothing-section">
       <div className="profile__clothing-header">
@@ -17,10 +24,13 @@ export function ClothesSection({ clothingItems, handleCardClick, openModal }) {
             <ItemCard
               isOpen="false"
               clothingOption={item}
-              key={item.id}
+              key={item._id}
               name={item.name}
               image={item.imageUrl}
               weather={item.weather}
+              currentUser={currentUser}
+              isLoggedIn={isLoggedIn}
+              handleLikeClick={handleLikeClick}
               onClick={() => {
                 handleCardClick(item);
               }}

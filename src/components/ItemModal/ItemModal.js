@@ -1,6 +1,19 @@
 import "./ItemModal.css";
 
-function ItemModal({ isOpen, name, card, onClose, handleDeleteModal }) {
+function ItemModal({
+  isOpen,
+  name,
+  card,
+  onClose,
+  handleDeleteModal,
+  onClick,
+  currentUser,
+}) {
+  const isOwn = card.owner === currentUser._id;
+  const itemDeleteButtonClassName = `item-modal__delete ${
+    isOwn ? "item-modal__delete" : "item-modal__delete_hidden"
+  }`;
+
   return (
     <div
       className={
@@ -8,6 +21,7 @@ function ItemModal({ isOpen, name, card, onClose, handleDeleteModal }) {
           ? `item-modal modal_type_${name}`
           : `modal_type_${name} item-modal_hidden`
       }
+      onClick={onClick}
     >
       <div className="item-modal__container">
         <button
@@ -25,7 +39,7 @@ function ItemModal({ isOpen, name, card, onClose, handleDeleteModal }) {
         <p className="item-modal__desc">Weather: {card.weather}</p>
         <button
           type="button"
-          className="item-modal__delete"
+          className={itemDeleteButtonClassName}
           onClick={handleDeleteModal}
         >
           Delete Item

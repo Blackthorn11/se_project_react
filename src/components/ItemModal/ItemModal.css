@@ -73,3 +73,7 @@
   line-height: 24px;
   cursor: pointer;
 }
+
+.item-modal__delete_hidden {
+  display: none;
+}

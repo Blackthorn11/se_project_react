@@ -53,6 +53,28 @@
   max-width: 40px;
 }
 
+.nav__register-button {
+  border: none;
+  background-color: #dcdcdc;
+  font-family: "Cabinet Grotesk", "Arial", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 25px;
+}
+.nav__login-button {
+  border: none;
+  background-color: #dcdcdc;
+  font-family: "Cabinet Grotesk", "Arial", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 25px;
+}
+.nav__register-button:hover,
+.nav__login-button:hover {
+  opacity: 70%;
+  cursor: pointer;
+}
+
 @media screen and (max-width: 550px) {
   .header {
     flex-direction: column;
