@@ -47,7 +47,7 @@ export const AddItemModal = ({ isOpen, onClose, onAddItem, isLoading }) => {
         onChange={handleName}
         value={name}
         placeholder="Name"
-        minLength="1"
+        minLength="2"
         maxLength="40"
         required
       />

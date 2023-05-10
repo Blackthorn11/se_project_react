@@ -13,7 +13,6 @@ function ItemModal({
   const itemDeleteButtonClassName = `item-modal__delete ${
     isOwn ? "item-modal__delete" : "item-modal__delete_hidden"
   }`;
-
   return (
     <div
       className={

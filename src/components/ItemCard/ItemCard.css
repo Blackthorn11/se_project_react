@@ -42,3 +42,32 @@
 .card__image:hover {
   cursor: pointer;
 }
+
+.card__like-button {
+  background: transparent url("../../images/empty-heart.png") center no-repeat;
+  width: 21px;
+  height: 19px;
+  border: none;
+  opacity: 100%;
+  cursor: pointer;
+  position: absolute;
+  margin-left: 20px;
+}
+.card__like-button:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
+.card__like-button_liked {
+  background: transparent url("../../images/full-heart.png") center no-repeat;
+  width: 21px;
+  height: 19px;
+  border: none;
+  opacity: 100%;
+  cursor: pointer;
+  margin-left: 20px;
+  position: absolute;
+}
+
+.card__like-button_hidden {
+  display: none;
+}

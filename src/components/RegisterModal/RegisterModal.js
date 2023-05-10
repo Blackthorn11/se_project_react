@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useHistory } from "react-router-dom";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
 const RegisterModal = ({
@@ -9,7 +8,6 @@ const RegisterModal = ({
   switchToLogin,
   isLoading,
 }) => {
-  const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
@@ -18,7 +16,6 @@ const RegisterModal = ({
   function handleSubmit(e) {
     e.preventDefault();
     onRegister({ name, avatar, email, password });
-    history.push("/profile");
   }
 
   return (
@@ -27,7 +24,7 @@ const RegisterModal = ({
       isOpen={isOpen}
       buttonText={isLoading ? "Saving..." : "Sign up"}
       onClose={onClose}
-      handleSubmit={handleSubmit}
+      onSubmit={handleSubmit}
     >
       <h4 className="form__label">Email</h4>
       <input

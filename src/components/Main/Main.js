@@ -56,10 +56,8 @@ function Main({
             return (
               <ItemCard
                 isOpen="false"
-                clothingOption={item}
+                clothing={item}
                 key={item._id}
-                name={item.name}
-                image={item.imageUrl}
                 weather={item.weather}
                 handleLikeClick={handleLikeClick}
                 isLoggedIn={isLoggedIn}

@@ -1,6 +1,6 @@
 // all imports
 import { useState, useEffect } from "react";
-import { HashRouter, Switch, Route, useHistory } from "react-router-dom";
+import { HashRouter, Switch, Route } from "react-router-dom";
 import "./App.css";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 import Header from "../Header/Header";
@@ -35,7 +35,6 @@ function App() {
   const [selectedCard, setSelectedCard] = useState({});
   const [clothingItems, setClothingItems] = useState([]);
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
-  const history = useHistory();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
   const [isLoading, setIsLoading] = useState(false);
@@ -74,10 +73,7 @@ function App() {
   const handleAddItemSubmit = (name, imageUrl, weatherType) => {
     addItem(name, imageUrl, weatherType)
       .then((item) => {
-        const items = [...clothingItems, item];
-        console.log(clothingItems);
-        console.log(item);
-        console.log(items);
+        const items = [...clothingItems, item.data];
         setClothingItems(items);
         closeModal();
       })
@@ -116,7 +112,6 @@ function App() {
     getItems()
       .then((res) => {
         setClothingItems(res.data);
-        console.log(res.data);
       })
       .catch((err) => console.log(err));
   };
@@ -151,7 +146,8 @@ function App() {
       });
   }
 
-  function handleSignIn(email, password) {
+  function handleSignIn(data) {
+    const { email, password } = data;
     setIsLoading(true);
     signIn(email, password)
       .then((res) => {
@@ -178,15 +174,14 @@ function App() {
     localStorage.removeItem("token");
     setIsLoggedIn(false);
     setCurrentUser({});
-    history.push("/");
   }
 
   function handleEditProfile(name, avatar) {
     setIsLoading(true);
     editUserInfo(name, avatar)
-      .then((res) => {
+      .then((data) => {
         closeModal();
-        setCurrentUser(res.data);
+        setCurrentUser(data);
       })
       .catch((err) => console.log(err))
       .finally(() => {
@@ -237,7 +232,8 @@ function App() {
               <Switch>
                 <ProtectedRoute
                   path="/profile"
-                  loggedIn={isLoggedIn}
+                  children={Profile}
+                  isLoggedIn={isLoggedIn}
                   currentUser={currentUser}
                 >
                   <Route path="/profile">
@@ -272,62 +268,72 @@ function App() {
               <Footer />
             </div>
             {/* Modals */}
-            <AddItemModal
-              isOpen={activeModal === "add"}
-              name={"add"}
-              title={"New Garment"}
-              onClose={closeModal}
-              onAddItem={handleAddItemSubmit}
-              isLoading={isLoading}
-            ></AddItemModal>
-            <ItemModal
-              isOpen={activeModal === "preview"}
-              name={"preview"}
-              card={selectedCard}
-              onClose={closeModal}
-              handleDeleteModal={() => {
-                setActiveModal("delete");
-              }}
-              onClick={handleOverlayClick}
-              currentUser={currentUser}
-            />
-            <DeleteConfirmationModal
-              isOpen={activeModal === "delete"}
-              name="delete"
-              onClose={closeModal}
-              handleConfirm={() => handleCardDelete(selectedCard)}
-              handleCancel={() => {
-                setActiveModal("preview");
-              }}
-              onClick={handleOverlayClick}
-            />
-            <RegisterModal
-              isOpen={activeModal === "signup"}
-              name={"register"}
-              title={"Register"}
-              onClose={closeModal}
-              onRegister={handleRegister}
-              switchToLogin={handleRedirect}
-              isLoading={isLoading}
-            />
-            <LoginModal
-              isOpen={activeModal === "login"}
-              name={"login"}
-              title={"Login"}
-              onClose={closeModal}
-              onLogin={handleSignIn}
-              switchToRegister={handleRedirect}
-              isLoading={isLoading}
-            />
-            <EditProfileModal
-              isOpen={activeModal === "edit"}
-              name={"edit"}
-              title={"Edit profile"}
-              onClose={closeModal}
-              currentUser={currentUser}
-              handleEditProfile={handleEditProfile}
-              isLoading={isLoading}
-            />
+            {activeModal === "add" && (
+              <AddItemModal
+                isOpen
+                name={"add"}
+                title={"New Garment"}
+                onClose={closeModal}
+                onAddItem={handleAddItemSubmit}
+                isLoading={isLoading}
+              ></AddItemModal>
+            )}
+            {activeModal === "preview" && (
+              <ItemModal
+                isOpen
+                name={"preview"}
+                card={selectedCard}
+                onClose={closeModal}
+                handleDeleteModal={() => {
+                  setActiveModal("delete");
+                }}
+                onClick={handleOverlayClick}
+                currentUser={currentUser}
+              />
+            )}
+            {activeModal === "delete" && (
+              <DeleteConfirmationModal
+                isOpen
+                name="delete"
+                onClose={closeModal}
+                handleConfirm={() => handleCardDelete(selectedCard)}
+                handleCancel={() => {
+                  setActiveModal("preview");
+                }}
+                onClick={handleOverlayClick}
+              />
+            )}
+            {activeModal === "signup" && (
+              <RegisterModal
+                isOpen
+                name={"register"}
+                onClose={closeModal}
+                onRegister={handleRegister}
+                switchToLogin={handleRedirect}
+                isLoading={isLoading}
+              />
+            )}
+            {activeModal === "login" && (
+              <LoginModal
+                isOpen
+                name={"login"}
+                title={"Login"}
+                onClose={closeModal}
+                onLogin={handleSignIn}
+                switchToRegister={handleRedirect}
+                isLoading={isLoading}
+              />
+            )}
+            {activeModal === "edit" && (
+              <EditProfileModal
+                isOpen
+                name={"edit"}
+                onClose={closeModal}
+                currentUser={currentUser}
+                handleEditProfile={handleEditProfile}
+                isLoading={isLoading}
+              />
+            )}
           </HashRouter>
         </CurrentTemperatureUnitContext.Provider>
       </div>

@@ -1,6 +1,5 @@
 import { useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
-import { useHistory } from "react-router-dom";
 
 const LoginModal = ({
   isOpen,
@@ -9,14 +8,12 @@ const LoginModal = ({
   switchToRegister,
   isLoading,
 }) => {
-  const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   function handleSubmit(e) {
     e.preventDefault();
     onLogin({ email, password });
-    history.push("/profile");
   }
 
   return (
@@ -30,9 +27,9 @@ const LoginModal = ({
       <h4 className="form__label">Email</h4>
       <input
         className="form__input form__input_type_email"
-        type="text"
-        value={email}
+        type="email"
         onChange={(e) => setEmail(e.target.value)}
+        value={email}
         placeholder="Email"
         required
         minLength={1}
@@ -42,8 +39,8 @@ const LoginModal = ({
       <input
         className="form__input form__input_type_password"
         type="password"
-        value={password}
         onChange={(e) => setPassword(e.target.value)}
+        value={password}
         placeholder="Password"
         required
         minLength={4}

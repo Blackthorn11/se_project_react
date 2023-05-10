@@ -95,11 +95,12 @@
   font-size: 20px;
   line-height: 25px;
   margin: 0;
+  margin-top: 24px;
 }
 
 .sidebar__profile-data {
   margin: 0 0 8px 0;
-  width: 175px;
+  width: 190px;
   cursor: pointer;
 }
 

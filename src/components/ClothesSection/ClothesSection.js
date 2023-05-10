@@ -23,10 +23,8 @@ export function ClothesSection({
           return (
             <ItemCard
               isOpen="false"
-              clothingOption={item}
+              clothing={item}
               key={item._id}
-              name={item.name}
-              image={item.imageUrl}
               weather={item.weather}
               currentUser={currentUser}
               isLoggedIn={isLoggedIn}

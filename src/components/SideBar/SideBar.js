@@ -13,7 +13,7 @@ export function SideBar({ currentUser, handleEditClick, handleLogout }) {
       </div>
       <div className="profile__options">
         <p className="sidebar__profile-data" onClick={handleEditClick}>
-          Edit Profile
+          Change profile data
         </p>
         <p className="sidebar__logout" onClick={handleLogout}>
           Log out

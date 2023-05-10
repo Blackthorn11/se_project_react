@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
 const EditProfileModal = ({
@@ -9,9 +8,8 @@ const EditProfileModal = ({
   handleEditProfile,
   isLoading,
 }) => {
-  const history = useHistory();
-  const [name, setName] = useState("");
-  const [avatar, setAvatar] = useState("");
+  const [name, setName] = useState(currentUser.name ?? "");
+  const [avatar, setAvatar] = useState(currentUser.avatar ?? "");
 
   const handleName = (e) => {
     setName(e.target.value);
@@ -23,21 +21,15 @@ const EditProfileModal = ({
   function handleSubmit(e) {
     e.preventDefault();
     handleEditProfile(name, avatar);
-    history.push("/profile");
   }
-
-  useEffect(() => {
-    setName(currentUser.name);
-    setAvatar(currentUser.avatar);
-  }, [currentUser]);
 
   return (
     <ModalWithForm
       isOpen={isOpen}
-      title="Edit Profile"
+      title="Change profile data"
       buttonText={isLoading ? "Saving..." : "Save"}
       onClose={onClose}
-      handleSubmit={handleSubmit}
+      onSubmit={handleSubmit}
     >
       <h4 className="form__heading">Name</h4>
       <input
@@ -49,6 +41,8 @@ const EditProfileModal = ({
         required
         onChange={handleName}
         value={name}
+        minLength={2}
+        maxLength={30}
       />
       <h4 className="form__heading">Avatar URL</h4>
       <input
