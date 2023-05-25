@@ -1,6 +1,3 @@
-// const baseUrl =
-//   "https://my-json-server.typicode.com/blackthorn11/se_project_react";
-
 const baseUrl =
   process.env.NODE_ENV === "production"
     ? "https://api.wtwrweb.mooo.com"
