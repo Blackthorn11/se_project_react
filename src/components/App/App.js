@@ -136,9 +136,7 @@ function App() {
     setIsLoading(true);
     signUp(name, avatar, email, password)
       .then((res) => {
-        closeModal();
-        setIsLoggedIn(true);
-        setCurrentUser(res);
+        handleSignIn({ email, password });
       })
       .catch((err) => console.log(err))
       .finally(() => {
@@ -146,8 +144,7 @@ function App() {
       });
   }
 
-  function handleSignIn(data) {
-    const { email, password } = data;
+  function handleSignIn({ email, password }) {
     setIsLoading(true);
     signIn(email, password)
       .then((res) => {
